@@ -9,34 +9,25 @@
     <title>Document</title>
   </head>
   <body>
-    <div class="wrapper">
-      <div>
-        <h2>todo__header</h2>
-        <ul id="todoList">
-          <li>
-            <h3>Köp mjölk</h3>
-            <p>Jag måste gå och köpa mjölk</p>
-          </li>
+    <main class="wrapper">
+      <section>
+        <form class="input">
+          <input class="input__textbox" id="inputTask" type="text" value="" />
+        </form>
+        <button class="input__btn" id="btnSubmit">Add task</button>
+      </section>
+      <section>
+        <h2>Pending tasks</h2>
+        <ul id="listPending" class="list">
+          <li class="list__item"></li>
         </ul>
-      </div>
-      <div>
-        <h2>todo__header</h2>
-        <ul>
-          <li></li>
+      </section>
+      <section>
+        <h2>Completed tasks</h2>
+        <ul class="listCompleted">
+          <li class="list__item--completed"></li>
         </ul>
-        <div>
-          <form>
-            <input class="add__task" id="inputTask" type="text" value="" />
-            <input
-              class="add__description"
-              id="inputDesc"
-              type="text"
-              value=""
-            />
-          </form>
-          <button id="btnSubmit">Add task</button>
-        </div>
-      </div>
-    </div>
+      </section>
+    </main>
   </body>
 </html>
