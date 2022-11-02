@@ -5,36 +5,67 @@ class Task {
   }
 }
 
-let pendingTasks = [new Task("Köpa mjölk", false), new Task("Träna", false)];
+let tasks = [new Task("Köpa mjölk", false), new Task("Träna", true)];
 
-function writePendingTasks() {
+function toggleComplete(task) {
+  if (task.completed == false) {
+    task.completed = true;
+  } else {
+    task.completed = false;
+  }
+
+  writeTasks();
+}
+/*
+Ovan funktion fast på "modernare" sätt:
+
+const toggleComplete = (task) => {
+  if (task.completed == false) {
+    task.completed = true;
+  } else {
+    task.completed = false;
+  }
+  writeTasks();
+};
+*/
+
+function writeTasks() {
   let listPending = document.getElementById("listPending");
+  let listCompleted = document.getElementById("listCompleted");
   listPending.innerHTML = "";
+  listCompleted.innerHTML = "";
 
-  for (let i = 0; i < pendingTasks.length; i++) {
-    let item = document.createElement("li");
-    item.innerText = pendingTasks[i].name;
-
-    if (pendingTasks[i].completed !== true) {
-      item.className = "list__item";
-      listPending.appendChild(item);
+  for (let i = 0; i < tasks.length; i++) {
+    let task = document.createElement("li");
+    task.innerText = tasks[i].name;
+    //task.id = tasks[i].name;
+    task.addEventListener("click", () => {
+      toggleComplete(tasks[i]);
+    });
+    /*
+    item.addEventListener("click", () => {
+      toggleComplete(tasks[i]);
+    });
+*/
+    if (tasks[i].completed !== true) {
+      task.className = "list__item";
+      listPending.appendChild(task);
     } else {
-      item.className = "list__item--completed";
-      listCompleted.appendChild(item);
+      task.className = "list__item--completed";
+      listCompleted.appendChild(task);
     }
   }
+  console.log(tasks);
 }
-
-writePendingTasks();
-
-document.getElementById("btnSubmit").addEventListener("click", addTask);
 
 function addTask() {
-  let inputName = document.getElementById("inputTask");
-
-  pendingTasks.push(new Task(inputName.value, false));
-  writePendingTasks();
+  tasks.push(new Task(document.getElementById("inputTask").value, false));
+  writeTasks();
 }
+
+writeTasks();
+
+document.getElementById("btnSubmit").addEventListener("click", addTask);
 
 // hur skriva ut en lista med object i HTML?
 

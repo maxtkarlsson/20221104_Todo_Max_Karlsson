@@ -1,0 +1,43 @@
+html {
+  font-family: "Courier New", Courier, monospace;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+}
+
+//Lists
+h2 {
+  text-align: center;
+}
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  &__item {
+    text-align: center;
+    &:hover {
+      cursor: pointer;
+      background-color: aqua;
+    }
+
+    &--completed {
+      text-align: center;
+      color: grey;
+      text-decoration: line-through;
+    }
+  }
+}
