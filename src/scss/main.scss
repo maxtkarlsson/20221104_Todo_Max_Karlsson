@@ -1,3 +1,4 @@
+//Base layout
 html {
   font-family: "Courier New", Courier, monospace;
 }
@@ -15,6 +16,7 @@ body {
 }
 
 section {
+  width: 20em;
   display: flex;
   flex-direction: column;
 }
@@ -22,22 +24,56 @@ section {
 //Lists
 h2 {
   text-align: center;
+  margin-bottom: 0.01em;
 }
+
 .list {
   list-style: none;
   display: flex;
   flex-direction: column;
+  padding: 0;
+
   &__item {
+    background-color: rgb(109, 184, 255);
     text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+    margin: 2px;
+    padding: 2px;
+    border: 2px;
+    border-radius: 2px;
     &:hover {
       cursor: pointer;
-      background-color: aqua;
+      background-color: rgb(51, 156, 255);
     }
 
     &--completed {
+      background-color: rgb(172, 172, 172);
+      border: 2px;
+      border-radius: 2px;
       text-align: center;
-      color: grey;
+      margin: 2px;
+      color: rgb(22, 22, 22);
       text-decoration: line-through;
+      font-weight: bold;
+      &:hover {
+        cursor: pointer;
+        background-color: grey;
+      }
     }
+  }
+}
+
+//Input form
+.containerForm {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.input {
+  &__btn {
+    width: 80px;
+    margin-left: 5px;
   }
 }

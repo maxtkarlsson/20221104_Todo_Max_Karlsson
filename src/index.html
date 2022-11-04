@@ -5,28 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/src/scss/main.scss" />
-    <script defer src="/src/js/main.js"></script>
+    <script defer type="module" src="/src/js/main.js"></script>
     <title>Document</title>
   </head>
   <body>
     <main class="wrapper">
-      <section>
+      <header>
+        <h1>To do:</h1>
+      </header>
+      <section class="containerForm">
         <form class="input">
-          <input class="input__textbox" id="inputTask" type="text" value="" />
+          <input
+            class="input__textbox"
+            id="inputTask"
+            type="text"
+            value=""
+            placeholder="Today I'm going to..."
+          />
         </form>
         <button class="input__btn" id="btnSubmit">Add task</button>
       </section>
       <section>
         <h2>Pending tasks</h2>
-        <ul id="listPending" class="list">
-          <li class="list__item"></li>
-        </ul>
+        <ul id="listPending" class="list"></ul>
       </section>
       <section>
         <h2>Completed tasks</h2>
-        <ul id="listCompleted" class="list">
-          <li class="list__item--completed"></li>
-        </ul>
+        <ul id="listCompleted" class="list"></ul>
       </section>
     </main>
   </body>
